@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 // import providersData from '@/data/db.json'
 
-const providerDataUrl = 'https://my-json-server.typicode.com/correllr/PCS-providers/providers'
+const providerDataUrl = 'https://my-json-server.typicode.com/correllr/PCSproviders/providers'
 const providersData:any = await axios.get(providerDataUrl).catch(error => {
     console.log(error)
   })
