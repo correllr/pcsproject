@@ -1,4 +1,5 @@
 <template>
+    <TheHeader />
     <main>
         <h1>
             {{ provider.name }}, {{ provider.beroep }}
@@ -17,6 +18,7 @@
     import { computed, reactive } from 'vue'
     import { useRoute } from 'vue-router'
     import { useProviderStore } from '@/stores/providers'
+    import TheHeader from '@/components/TheHeader.vue'
     
     const route = useRoute()
 

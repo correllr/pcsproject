@@ -1,35 +1,14 @@
-<script setup lang="ts">
-import { reactive, computed, ref } from 'vue'
-import { useProviderStore } from '@/stores/providers'
-import { RouterLink } from 'vue-router'
-
-const store = useProviderStore()
-const providers = store.providersArray
-let selectedBeroep:any = ref("")
-let providersGroup:any = ref(providers)
-
-
-function selectBeroep(beroep:any) {
-  selectedBeroep = beroep.toLowerCase();
-  if(selectedBeroep.length != 0) {
-    providersGroup.value = providers.filter((p:any) => p.beroep.toLowerCase()  == selectedBeroep)
-  } else {
-    providersGroup.value = providers
-  }
-}
-  
-</script>
-
 <template>
   <main>
-    <header>
-      <h1>PCS Providers Nijmegen</h1>
-    </header>
+    <TheHeader />
 
     <div id="button-container">
       <button @click="selectBeroep('')">All</button>
       <button v-for="uniqueBeroep in store.listBeroepen" @click="selectBeroep(uniqueBeroep)">{{ uniqueBeroep}}</button>
     </div>
+
+    {{ usersStore.users }}
+    <!-- {{ dataUrl }} -->
     
 
     <ul>
@@ -45,6 +24,34 @@ function selectBeroep(beroep:any) {
     
   </main>
 </template>
+
+<script setup lang="ts">
+  import { reactive, computed, ref } from 'vue'
+  import { useProviderStore } from '@/stores/providers'
+  import { useUsersStore } from '@/stores/users'
+  import { RouterLink } from 'vue-router'
+  import TheHeader from '@/components/TheHeader.vue'
+
+  const store = useProviderStore()
+  const providers = store.providersArray
+  let selectedBeroep:any = ref("")
+  let providersGroup:any = ref(providers)
+
+  const usersStore = useUsersStore()
+  // const users = usersStore.usersArray
+  const dataUrl = usersStore.userDataUrl
+
+
+  function selectBeroep(beroep:any) {
+    selectedBeroep = beroep.toLowerCase();
+    if(selectedBeroep.length != 0) {
+      providersGroup.value = providers.filter((p:any) => p.beroep.toLowerCase()  == selectedBeroep)
+    } else {
+      providersGroup.value = providers
+    }
+  }
+  
+</script>
 
 <style scoped>
   ul {

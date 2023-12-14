@@ -1,3 +1,4 @@
+
 { 
 "providers" :
     [
@@ -28,6 +29,13 @@
             "beroep" : "Chiropractor",
             "locatie" : "ChiroPro",
             "persoonlijk" : "0612345678"
+        }
+    ],
+    "users":[
+        {
+            "id" : "1",
+            "username": "Robbie",
+            "password" : "password"
         }
     ]
 }
