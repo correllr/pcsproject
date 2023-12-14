@@ -7,7 +7,7 @@
       <button v-for="uniqueBeroep in store.listBeroepen" @click="selectBeroep(uniqueBeroep)">{{ uniqueBeroep}}</button>
     </div>
 
-    {{ usersStore.users }}
+    {{ users }}
     <!-- {{ dataUrl }} -->
     
 
@@ -38,8 +38,8 @@
   let providersGroup:any = ref(providers)
 
   const usersStore = useUsersStore()
-  // const users = usersStore.usersArray
-  const dataUrl = usersStore.userDataUrl
+  const users = usersStore.users.data
+
 
 
   function selectBeroep(beroep:any) {

@@ -34,8 +34,13 @@
     "users":[
         {
             "id" : "1",
-            "username": "Robbie",
+            "username": "Admin",
             "password" : "password"
+        },
+        {
+            "id": 2,
+            "username": "Robbie",
+            "password": "password"
         }
     ]
 }
